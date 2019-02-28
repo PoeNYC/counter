@@ -1,28 +1,30 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {Component} from 'react';
 
-class App extends Component {
+class Counter extends Component {
+  constructor () {
+    super();
+    this.state = {
+      count: 0,
+    };
+  }
+
+  increment = () => {
+    this.setState ({
+      count: this.state.count + 1,
+    })
+  };
   render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            This is JavaScript React
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+    return(
+      <div className="container">
+        <div className="navbar">COUNTER.JS</div>
+        <div className="counter">
+        <h1>{this.state.count}</h1>
+        <button type="button" onClick={this.increment}>Increment</button>
+        <button type="button">Decrement</button>
+        </div>
       </div>
     );
   }
-}
+};
 
-export default App;
+export default Counter;
